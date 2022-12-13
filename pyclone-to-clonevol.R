@@ -2,6 +2,7 @@
 ##MACPRO_terminal
 #! /path/to/Rscript
 ##pyclon-tsv-merg-clonevol-tsv
+cd loci_tsv;
 ls *_loci.tsv>config1;
 cat config1 | while read id;
 do
