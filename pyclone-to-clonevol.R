@@ -9,12 +9,11 @@ do
         i=${id};
          echo $i
 cat $i | cut -f 1-6 | sed '1d' | paste - - - - > ${i:0:9}_loci2.tsv;
-cat *loci2.tsv > gaozh_all_loci3.tsv;
+cat *loci2.tsv > patient1_all_loci3.tsv;
 done
 
 R --max-ppsize 500000
 install.packages('data.table', repos = 'https://mirrors.tuna.tsinghua.edu.cn/CRAN')
-setwd("20221012lal_tree")
 
 options("expressions"=500000)
 options("expression"=500000)
@@ -28,7 +27,7 @@ library(tidyverse)
 library(ggplot2)
 getwd()
 
-yuli<-as.data.frame(fread("cjl_all1220_clu16.tsv", sep="\t", header=F, dec=".", fill=TRUE))
+yuli<-as.data.frame(fread("patient1_all_loci3.tsv", sep="\t", header=F, dec=".", fill=TRUE))
 names(yuli)<-c('mutation', 'sample', 'cluster', 'cellular_prevalence', 'cellular_prevalence_std', 'variant_allele_frequency')
 yuli$vaf <-yuli$cellular_prevalence*100/2
 yuli<-as.data.table(yuli)
