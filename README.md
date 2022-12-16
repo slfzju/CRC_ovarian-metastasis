@@ -8,5 +8,7 @@ the somatic mutations, copy number alterations (CNAs), altered pathway and poten
 The metastatic pathways of CRCOM by building clone trees with Pyclone and Clonevol were constructed. 
 
 Requirements
-R
+
+R;
+
 python 3
